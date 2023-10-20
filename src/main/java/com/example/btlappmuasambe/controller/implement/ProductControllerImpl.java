@@ -6,8 +6,9 @@ import com.example.btlappmuasambe.model.request.FindProductByCriteriaRequest;
 import com.example.btlappmuasambe.model.response.FindProductByCriteriaResponse;
 import com.example.btlappmuasambe.model.response.GetProductResponse;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class ProductControllerImpl implements ProductController {
     @Override
     public GetProductResponse getProduct() {
