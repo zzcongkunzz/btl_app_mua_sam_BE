@@ -4,9 +4,10 @@ import com.example.btlappmuasambe.model.Product;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class FindProductByCriteriaResponse {
-    private ArrayList<Product> productArrayList;
+    private List<Product> listProduct;
 
 }

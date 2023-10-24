@@ -32,8 +32,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public RegisterResponse register(Users userRequest) {
         RegisterResponse registerResponse = new RegisterResponse();
-        UserGroup userGroup = userGroupRepository.findUserGroupByName(RoleType.KHACH_HANG.getValue());
-        userRequest.setUserGroup(userGroup);
+
+        if(userRequest.getUserGroup() == null){
+            UserGroup userGroup = userGroupRepository.findUserGroupByName(RoleType.KHACH_HANG.getValue());
+            userRequest.setUserGroup(userGroup);
+        }
+
         Users userResponse = userRepository.save(userRequest);
         registerResponse.setUsers(userResponse);
         return registerResponse;

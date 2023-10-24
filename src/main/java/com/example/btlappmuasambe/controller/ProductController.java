@@ -10,19 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/adm/api")
 public interface ProductController {
-
-    @GetMapping("/product")
-    @Operation(
-            summary = "Lấy danh sách sản phẩm",
-//            description = "Lấy token",
-            responses = {
-                    @ApiResponse(responseCode = "200", description = "Thành công"),
-                    @ApiResponse(responseCode = "400", description = "Đầu vào không hợp lệ"),
-                    @ApiResponse(responseCode = "500", description = "Lỗi dịch vụ")
-            }
-    )
-    GetProductResponse getProduct();
-
     @GetMapping("/product/{id}")
     @Operation(
             summary = "Tìm kiếm sản phẩn theo id",

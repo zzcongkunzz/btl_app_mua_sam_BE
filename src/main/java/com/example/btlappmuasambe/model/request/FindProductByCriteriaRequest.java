@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 @Data
 public class FindProductByCriteriaRequest {
-    private String nameProduct;
+    private String nameProductOrCategory;
     private ArrayList<String> category;
     private String sortBy;
 }

@@ -17,6 +17,7 @@ public class Users {
     @JoinColumn(name = "UserGrop_Id")
     private UserGroup userGroup;
 
+    @Column(columnDefinition = "nvarchar(max)")
     private String fullName;
 
     private String password;
@@ -27,6 +28,7 @@ public class Users {
 
     private String gender;
 
+    @Column(columnDefinition = "nvarchar(max)")
     private String address;
 
     public Users(UserGroup userGroup, String fullName, String password, String email, String phoneNumber, String gender, String address) {
