@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductControllerImpl implements ProductController {
     @Autowired
-    ProductService productService;
+    private ProductService productService;
 
     @Override
     public Product findProductById(Long id) {

@@ -7,5 +7,5 @@ import java.util.List;
 
 @Data
 public class GetCategoryResponse {
-    List<Category> listCategory;
+    private List<Category> listCategory;
 }

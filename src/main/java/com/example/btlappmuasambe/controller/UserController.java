@@ -31,7 +31,7 @@ public interface UserController {
     );
 
     @Operation(
-            summary = "Đăng kí tài khoản",
+            summary = "Cập nhật thông tin user",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Thành công"),
                     @ApiResponse(responseCode = "400", description = "Đầu vào không hợp lệ"),
