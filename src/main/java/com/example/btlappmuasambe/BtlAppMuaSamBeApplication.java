@@ -1,27 +1,17 @@
 package com.example.btlappmuasambe;
 
 import com.example.btlappmuasambe.consts.RoleType;
-import com.example.btlappmuasambe.consts.SortType;
 import com.example.btlappmuasambe.model.Category;
-import com.example.btlappmuasambe.model.Product;
 import com.example.btlappmuasambe.model.UserGroup;
 import com.example.btlappmuasambe.model.Users;
-import com.example.btlappmuasambe.model.request.FindProductByCriteriaRequest;
 import com.example.btlappmuasambe.repository.CategoryRepository;
-import com.example.btlappmuasambe.repository.ProductRepository;
 import com.example.btlappmuasambe.repository.UserGroupRepository;
 import com.example.btlappmuasambe.repository.UserRepository;
 import com.example.btlappmuasambe.service.ProductService;
-import com.example.btlappmuasambe.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Optional;
 
 @SpringBootApplication
 public class BtlAppMuaSamBeApplication {
@@ -34,26 +24,27 @@ public class BtlAppMuaSamBeApplication {
     CommandLineRunner run(UserGroupRepository userGroupRepository,
                           UserRepository userRepository,
                           CategoryRepository categoryRepository,
-                          ProductService productService){
+                          ProductService productService) {
         return args -> {
             UserGroup userGroupNV = userGroupRepository.save(new UserGroup(RoleType.NHAN_VIEN.getValue()));
-            UserGroup userGroupAdmin = userGroupRepository.save(new UserGroup( RoleType.Admin.getValue()));
-            UserGroup userGroupKH = userGroupRepository.save(new UserGroup( RoleType.KHACH_HANG.getValue()));
+            UserGroup userGroupAdmin = userGroupRepository.save(new UserGroup(RoleType.Admin.getValue()));
+            UserGroup userGroupKH = userGroupRepository.save(new UserGroup(RoleType.KHACH_HANG.getValue()));
 
             //Thêm User
             Users users = new Users();
             users.setUserGroup(userGroupKH);
             users.setFullName("Đặng Thành Công");
             users.setPhoneNumber("0914133719");
+            users.setEmail("dangcong@gmail.com");
             users.setPassword("1");
             userRepository.save(users);
 
             //Thêm loại sản phẩm
             Category category1 = categoryRepository.save(new Category("Thời trang"));
-            Category category2 = categoryRepository.save( new Category("Thiết bị điện tử"));
-            Category category3 = categoryRepository.save( new Category("Máy Tính và Laptop"));
-            Category category4 = categoryRepository.save( new Category("Điện thoại và Phụ Kiện"));
-            Category category5 = categoryRepository.save( new Category("Sức khỏe"));
+            Category category2 = categoryRepository.save(new Category("Thiết bị điện tử"));
+            Category category3 = categoryRepository.save(new Category("Máy Tính và Laptop"));
+            Category category4 = categoryRepository.save(new Category("Điện thoại và Phụ Kiện"));
+            Category category5 = categoryRepository.save(new Category("Sức khỏe"));
 
             //Thêm sản phẩm
             themSanPham(productService);
@@ -67,7 +58,7 @@ public class BtlAppMuaSamBeApplication {
         };
     }
 
-    private void themSanPham(ProductService productService){
+    private void themSanPham(ProductService productService) {
         //Thêm sản phẩm
         productService.addProductTest(
                 "áo khoác nữ sinh Harajuku JK 100% ảnh thật",
